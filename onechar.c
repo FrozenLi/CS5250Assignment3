@@ -54,7 +54,7 @@ copy_from_user(onebyte_data,buf,sizeof(char));
 
 /*Check length */
 if(count > sizeof(char)){
-printk(KERN_ALERT "No space. Only one char\n");
+printk(KERN_ALERT "No space left on device.\n");
 return -ENOSPC;
 }
 

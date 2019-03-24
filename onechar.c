@@ -52,6 +52,11 @@ size_t count, loff_t *f_pos)
 int bytes_write = 0;
 copy_from_user(onebyte_data,buf,sizeof(char));
 
+/*Check length */
+if(count > sizeof(char)){
+printk(KERN_ALERT "No space. Only one char\n");
+return -ENOSPC;
+}
 
 bytes_write ++;
 return bytes_write;
